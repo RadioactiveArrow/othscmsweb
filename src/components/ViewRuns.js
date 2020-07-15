@@ -46,7 +46,7 @@ export default class ViewRuns extends React.Component {
   getUser(){
     var token = cookie.load('auth-token');
     cookie.load('auth-token') &&
-    axios.post("http://"+ip+'/othscmsbackend/confirmlogin.php',
+    axios.post("http://"+ip+'/othscmsbackend/confirm_login.php',
     {
         authtoken: token,
     },

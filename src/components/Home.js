@@ -27,11 +27,10 @@ export default class Home extends React.Component
     this.getTeam();
   }
 
-
   getTeam(){
     var token = cookie.load('auth-token');
     cookie.load('auth-token') &&
-    axios.post("http://"+ip+'/othscmsbackend/confirmlogin.php',
+    axios.post("http://"+ip+'/othscmsbackend/confirm_login.php',
     {
         authtoken: token,
     },

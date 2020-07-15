@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import Login from './components/Login';
 import Leaderboard from './components/Leaderboard';
 import Account from './components/Account';
@@ -50,7 +50,7 @@ export default class App extends React.Component {
   autoLogin (){
     var token = cookie.load('auth-token');
     cookie.load('auth-token') &&
-    axios.post("http://"+ip+'/othscmsbackend/confirmlogin.php',
+    axios.post("http://"+ip+'/othscmsbackend/confirm_login.php',
       {
         authtoken: token,
       },
@@ -74,7 +74,6 @@ export default class App extends React.Component {
   }
 
   render(){
-
     return(
       <Router>
         <Switch>
@@ -91,9 +90,8 @@ export default class App extends React.Component {
           {this.state.authenticated && this.state.role === "JUDGE" &&  <Route exact path='/grade' render = {(props) => <Grade {...props} autoLogin = {this.autoLogin} authenticated = {this.state.authenticated}/>} />}
           {this.state.authenticated && this.state.role === "JUDGE" &&  <Route exact path='/written' render = {(props) => <Written {...props} autoLogin = {this.autoLogin} authenticated = {this.state.authenticated}/>} />}
           {!this.state.authenticated && <Route exact path='/' render = {(props) => <Login {...props} autoLogin = {this.autoLogin} authenticated = {this.state.authenticated} login={this.login}/>} />}
+          {/* {this.state.authenticated && this.state.role === "COMPETITOR" && <Redirect to="/cheese"/>} */}
           <Route component={Error404} />
-
-
         </Switch>
       </Router>
     );

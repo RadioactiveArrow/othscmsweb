@@ -1,6 +1,8 @@
 import React from 'react';
 import "../styles/darkmode.css";
 import Navigation from './Navigation';
+import { Route } from 'react-router-dom';
+import Home from './Home';
 
 
 
@@ -17,6 +19,11 @@ export default class Error404 extends React.Component
   
 
   render(){
+    if(this.state.authenticated) {
+      return(
+        <Route component={Home}></Route>
+      )
+    }
     return(
         <div>
             <Navigation/>   

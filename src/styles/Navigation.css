@@ -1,4 +1,4 @@
-
+/* 
 *{
  margin: 0;
  padding: 0;
@@ -10,7 +10,7 @@ html{
 }
 
 body {
-  /*background: url("../images/photo.jpeg");*/
+  background: url("../images/photo.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -37,4 +37,9 @@ body {
   font-family: "Rubik","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 900;
   color:white;
+} */
+
+
+.nav {
+  background-color: red;
 }

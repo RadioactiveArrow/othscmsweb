@@ -51,7 +51,7 @@ export default class TeamClarify extends React.Component
     axios.post("http://"+ip+'/othscmsbackend/add_clarification.php',{
         team: this.state.user,
         question: question,
-        problem: this.state.problemVal,
+        problem: this.state.problemVal || "nAn",
     },
     {
       headers: {
@@ -83,7 +83,7 @@ export default class TeamClarify extends React.Component
   setUser(){
     var token = cookie.load('auth-token');
     cookie.load('auth-token') &&
-    axios.post("http://"+ip+'/othscmsbackend/confirmlogin.php',
+    axios.post("http://"+ip+'/othscmsbackend/confirm_login.php',
       {
         authtoken: token,
       },
